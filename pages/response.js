@@ -43,7 +43,8 @@ const ResponsePage = () => {
           clarity: row[3],
           interest: row[4],
           aesthetics: row[5],
-          feedback: row[6] || ''
+          feedback: row[6] || '',
+          mail: row[7],
         }));
         
         setResponses(formattedResponses);
@@ -298,7 +299,7 @@ const ResponsePage = () => {
                   <div className="flex items-center justify-between mb-4">
                     <div className="text-white/80">{response.timestamp}</div>
                     <div className="text-white bg-white/10 px-4 py-1 rounded-full">
-                      {response.gender === 'ชาย' ? '👨' : '👩'} {response.gender}
+                      {response.gender === 'ชาย' ? '👨' : response.gender === 'หญิง' ? '👩' : '🧑'} {response.gender}({response.mail})
                     </div>
                   </div>
                   <p className="text-white text-lg">{response.feedback}</p>
