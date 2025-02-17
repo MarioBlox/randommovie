@@ -1,0 +1,127 @@
+/* Main Wrapper */
+.main-wrapper {
+  padding: 20px;
+  max-width: 320px;
+  height: 350px;
+  margin: auto;
+  margin-top: 50px;
+  background: linear-gradient(to top left, #8e44ad, #2c1b4a); /* Luxurious gradient */
+  border-radius: 30px;
+  width: 100%;
+  box-shadow: 0 4px 40px rgba(0, 0, 0, 0.5); /* Soft and large shadow for depth */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Container */
+.container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+/* Circles - Luxurious and Glowing Effect */
+.circle {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  border-radius: 50%;
+  background-color: #e6e0f3; /* Soft glowing light color */
+  left: 15%;
+  transform-origin: 50%;
+  animation: circle 0.8s alternate infinite ease-in-out;
+  box-shadow: 0 0 20px rgba(220, 91, 81, 0.7); /* Glowing effect */
+}
+
+@keyframes circle {
+  0% {
+    top: 250px;
+    border-radius: 50px 50px 25px 25px;
+    transform: scaleX(1.7);
+    height: 5px;
+  }
+  40% {
+    height: 30px;
+    border-radius: 50%;
+    transform: scaleX(1);
+  }
+  100% {
+    top: 0%;
+    transform: scale(1);
+  }
+}
+
+.circle:nth-child(2) {
+  animation-delay: 0.2s;
+  left: 45%;
+}
+
+.circle:nth-child(3) {
+  animation-delay: 0.4s;
+  left: auto;
+  right: 15%;
+  animation-delay: 0.3s;
+}
+
+/* Shadows - Smooth and Larger */
+.shadow {
+  width: 20px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: rgba(220, 91, 81, 0.6); /* Subtle reddish shadow */
+  position: absolute;
+  top: 252px;
+  transform-origin: 50%;
+  left: 15%;
+  filter: blur(4px);
+  animation: shadow 0.8s alternate infinite ease-in-out;
+}
+
+@keyframes shadow {
+  0% {
+    transform: scaleX(1.5);
+    opacity: 0.6;
+  }
+  40% {
+    transform: scaleX(1);
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0.4;
+    transform: scaleX(0.2);
+  }
+}
+
+.shadow:nth-child(4) {
+  animation-delay: 0.2s;
+  left: 45%;
+}
+
+.shadow:nth-child(5) {
+  animation-delay: 0.4s;
+  left: auto;
+  right: 15%;
+}
+
+/* Additional Effects */
+@keyframes glowing {
+  0% {
+    box-shadow: 0 0 10px rgba(220, 91, 81, 0.8);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(220, 91, 81, 1.2);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(220, 91, 81, 0.8);
+  }
+}
+
+/* Apply Glowing Effect to Circle */
+.circle {
+  animation: circle 0.8s alternate infinite ease-in-out, glowing 1.2s alternate infinite ease-in-out;
+}

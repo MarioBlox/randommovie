@@ -1,0 +1,169 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;600&display=swap');
+
+:root {
+  --primary-gradient: linear-gradient(135deg, #8a4fff, #b667f9);
+  --background-dark: #1a0b2e;
+  --background-mid: #2c1b4a;
+  --background-light: #3a2d5d;
+  --text-color: #e6e0f3;
+  --accent-color: #b667f9;
+}
+
+body {
+  @apply bg-gradient-to-br from-[var(--background-dark)] via-[var(--background-mid)] to-[var(--background-light)];
+  @apply text-[var(--text-color)] font-montserrat tracking-wide;
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-screen;
+  background-attachment: fixed;
+  perspective: 1000px;
+  overflow-x: hidden;
+}
+
+/* Smooth Scroll and Elegant Typography */
+html {
+  scroll-behavior: smooth;
+}
+
+h1, h2, h3 {
+  @apply font-playfair font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#b667f9] to-[#8a4fff];
+  transition: all 0.3s ease;
+}
+
+h1:hover, h2:hover, h3:hover {
+  transform: scale(1.02);
+  text-shadow: 0 10px 20px rgba(138, 79, 255, 0.3);
+}
+
+/* Enhanced Elegant Button */
+.elegant-button {
+  @apply px-8 py-3 rounded-full transition-all duration-300 ease-in-out;
+  @apply bg-gradient-to-r from-[#8a4fff] to-[#b667f9] text-white;
+  @apply hover:shadow-2xl hover:scale-105 transform;
+  @apply font-montserrat font-semibold uppercase tracking-wide;
+  box-shadow: 0 10px 25px rgba(138, 79, 255, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.elegant-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: all 0.6s;
+}
+
+.elegant-button:hover::before {
+  left: 100%;
+}
+
+/* Responsive Typography */
+@screen sm {
+  body { @apply text-base; }
+  h1 { @apply text-4xl; }
+  h2 { @apply text-3xl; }
+}
+
+@screen md {
+  body { @apply text-lg; }
+  h1 { @apply text-5xl; }
+  h2 { @apply text-4xl; }
+}
+
+@screen lg {
+  body { @apply text-xl; }
+  h1 { @apply text-6xl; }
+  h2 { @apply text-5xl; }
+}
+
+/* Enhanced Animated Background */
+.animated-bg-element {
+  @apply absolute opacity-20 rounded-full blur-3xl;
+  animation: float 12s infinite alternate;
+  transition: all 0.5s ease;
+}
+
+.animated-bg-element:hover {
+  opacity: 0.4;
+  transform: scale(1.1);
+}
+
+@keyframes float {
+  0% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(30px) rotate(10deg); }
+  100% { transform: translateY(50px) rotate(-10deg); }
+}
+
+/* Responsive Menu Overlay */
+.menu-overlay {
+  @apply fixed inset-0 z-50 bg-black bg-opacity-80 backdrop-blur-lg;
+  @apply flex items-center justify-center;
+  perspective: 1000px;
+}
+
+.menu-item {
+  @apply text-2xl font-playfair tracking-wide uppercase;
+  @apply transition-all duration-300 ease-in-out;
+  @apply hover:text-[var(--accent-color)] hover:scale-110 transform;
+  @apply mb-6 text-white/90;
+  transform-style: preserve-3d;
+}
+
+.menu-item:hover {
+  transform: translateZ(50px) rotateY(15deg);
+}
+
+/* Micro-interactions and Hover Effects */
+.hover-lift {
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+@media (max-width: 640px) {
+  .navbar {
+    @apply flex flex-row items-center justify-between;
+  }
+
+  .btn {
+    @apply flex flex-row items-center space-x-2 overflow-x-auto no-scrollbar;
+  }
+
+  .btn button {
+    @apply px-4 py-2 text-sm whitespace-nowrap;
+  }
+
+  .burger {
+    @apply order-first mr-4;
+  }
+}
+
+/* Hide scrollbar but keep scrolling */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* Additional Micro-animations */
+@keyframes subtle-pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.pulse-hover:hover {
+  animation: subtle-pulse 1s infinite;
+}
